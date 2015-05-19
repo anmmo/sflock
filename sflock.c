@@ -81,7 +81,7 @@ main(int argc, char **argv) {
     KeySym ksym;
     Pixmap pmap;
     Window root, w;
-    XColor black, red, green, dummy;
+    XColor black, red, dummy;
     XEvent ev;
     XSetWindowAttributes wa;
     XFontStruct* font;
@@ -157,7 +157,10 @@ main(int argc, char **argv) {
     root = RootWindow(dpy, screen);
     width = DisplayWidth(dpy, screen);
     height = DisplayHeight(dpy, screen);
-
+  XColor col;
+  col.red = 65535;  // value is 0-65535
+  col.green = 32767;
+  col.blue = 0;
     wa.override_redirect = 1;
     wa.background_pixel = XBlackPixel(dpy, screen);
     w = XCreateWindow(dpy, root, 0, 0, width, height,
@@ -166,6 +169,7 @@ main(int argc, char **argv) {
 
     XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "orange red", &red, &dummy);
     XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "black", &black, &dummy);
+    XAllocColor(dis, DefaultColormap(display,0), &col);
     pmap = XCreateBitmapFromData(dpy, w, curs, 8, 8);
     invisible = XCreatePixmapCursor(dpy, pmap, pmap, &black, &black, 0, 0);
     XDefineCursor(dpy, w, invisible);
@@ -262,11 +266,6 @@ main(int argc, char **argv) {
 #endif
                     if (running != 0)
 					{
-			XColor col;
-			col.red = 65535;  // value is 0-65535
-  			col.green = 32767;
-  			col.blue = 0;
-  			XAllocColor(dis, DefaultColormap(display,0), &col);
                         // change background on wrong password
                         XSetWindowBackground(dpy, w, col.pixel);
 						insult = "Bhootni Ke, Bhaag Ja";
