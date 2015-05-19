@@ -91,7 +91,8 @@ main(int argc, char **argv) {
     // defaults
     char* passchar = "*";
     //char* fontname = "-*-dejavu sans-bold-r-*-*-*-420-100-100-*-*-iso8859-1";
-	char* fontname ="-*-fixed-medium-r-*-*-*-90-100-100-*-*-iso8859-1";
+	//char* fontname ="-*-fixed-medium-r-*-*-*-90-100-100-*-*-iso8859-1";
+	char* fontname ="-*-verdana-bold-r-*-*-*-420-100-100-*-*-iso8859-1";
     char* username = "";
 	char* insult="";
     int showline = 1;
@@ -262,8 +263,8 @@ main(int argc, char **argv) {
                     if (running != 0)
 					{
                         // change background on wrong password
-                        XSetWindowBackground(dpy, w, red.pixel);
-						insult = "get off my computer, motherfucker";
+                        XSetWindowBackground(dpy, w, green.pixel);
+						insult = "Bhootni Ke, Bhaag Ja 👊";
 						wrong = True;
 					}
                     len = 0;
