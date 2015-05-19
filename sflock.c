@@ -70,7 +70,6 @@ main(int argc, char **argv) {
     char curs[] = {0, 0, 0, 0, 0, 0, 0, 0};
     char buf[32], passwd[256], passdisp[256];
     int num, screen, width, height, update, sleepmode, term, pid;
-    struct XColor col;
 
 #ifndef HAVE_BSD_AUTH
     const char *pws;
@@ -82,7 +81,7 @@ main(int argc, char **argv) {
     KeySym ksym;
     Pixmap pmap;
     Window root, w;
-    XColor black, red, dummy;
+    XColor black, red, dummy, col;
     XEvent ev;
     XSetWindowAttributes wa;
     XFontStruct* font;
