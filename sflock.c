@@ -69,7 +69,7 @@ int
 main(int argc, char **argv) {
     char curs[] = {0, 0, 0, 0, 0, 0, 0, 0};
     char buf[32], passwd[256], passdisp[256];
-    int num, screen, width, height, update, sleepmode, term, pid, dis, display;
+    int num, screen, width, height, update, sleepmode, term, pid;
 
 #ifndef HAVE_BSD_AUTH
     const char *pws;
@@ -157,10 +157,6 @@ main(int argc, char **argv) {
     root = RootWindow(dpy, screen);
     width = DisplayWidth(dpy, screen);
     height = DisplayHeight(dpy, screen);
-  XColor col;
-  col.red = 65535;  // value is 0-65535
-  col.green = 32767;
-  col.blue = 0;
     wa.override_redirect = 1;
     wa.background_pixel = XBlackPixel(dpy, screen);
     w = XCreateWindow(dpy, root, 0, 0, width, height,
@@ -169,7 +165,7 @@ main(int argc, char **argv) {
 
     XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "orange red", &red, &dummy);
     XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "black", &black, &dummy);
-    XAllocColor(dis, DefaultColormap(display,0), &col);
+    XParseColor(dpy, DefaultColormap(dpy,0), "#FF7F00", &col);;
     pmap = XCreateBitmapFromData(dpy, w, curs, 8, 8);
     invisible = XCreatePixmapCursor(dpy, pmap, pmap, &black, &black, 0, 0);
     XDefineCursor(dpy, w, invisible);
