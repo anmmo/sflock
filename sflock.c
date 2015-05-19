@@ -81,7 +81,7 @@ main(int argc, char **argv) {
     KeySym ksym;
     Pixmap pmap;
     Window root, w;
-    XColor black, red, dummy;
+    XColor black, red, green, dummy;
     XEvent ev;
     XSetWindowAttributes wa;
     XFontStruct* font;
