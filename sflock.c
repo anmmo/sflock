@@ -68,7 +68,7 @@ get_password() { /* only run as root */
 int
 main(int argc, char **argv) {
     char curs[] = {0, 0, 0, 0, 0, 0, 0, 0};
-    char buf[32], passwd[256], passdisp[256];
+    char buf[32], passwd[256], passdisp[256], col[7];
     int num, screen, width, height, update, sleepmode, term, pid;
 
 #ifndef HAVE_BSD_AUTH
