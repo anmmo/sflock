@@ -69,7 +69,7 @@ int
 main(int argc, char **argv) {
     char curs[] = {0, 0, 0, 0, 0, 0, 0, 0};
     char buf[32], passwd[256], passdisp[256];
-    int num, screen, width, height, update, sleepmode, term, pid;
+    int num, screen, width, height, update, sleepmode, term, pid, dis, display;
 
 #ifndef HAVE_BSD_AUTH
     const char *pws;
