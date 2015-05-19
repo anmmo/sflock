@@ -262,9 +262,14 @@ main(int argc, char **argv) {
 #endif
                     if (running != 0)
 					{
+			XColor col;
+			col.red = 65535;  // value is 0-65535
+  			col.green = 32767;
+  			col.blue = 0;
+  			XAllocColor(dis, DefaultColormap(display,0), &col);
                         // change background on wrong password
-                        XSetWindowBackground(dpy, w, green.pixel);
-						insult = "Bhootni Ke, Bhaag Ja 👊";
+                        XSetWindowBackground(dpy, w, col.pixel);
+						insult = "Bhootni Ke, Bhaag Ja";
 						wrong = True;
 					}
                     len = 0;
