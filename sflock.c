@@ -92,7 +92,7 @@ main(int argc, char **argv) {
     char* passchar = "*";
     //char* fontname = "-*-dejavu sans-bold-r-*-*-*-420-100-100-*-*-iso8859-1";
 	//char* fontname ="-*-fixed-medium-r-*-*-*-90-100-100-*-*-iso8859-1";
-	char* fontname ="-*-verdana-bold-r-*-*-*-420-100-100-*-*-iso8859-1";
+	char* fontname ="-*-verdana-bold-r-*-*-*-250-100-100-*-*-iso8859-1";
     char* username = "";
 	char* insult="";
     int showline = 1;
