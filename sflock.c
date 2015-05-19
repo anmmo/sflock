@@ -165,7 +165,10 @@ main(int argc, char **argv) {
 
     XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "orange red", &red, &dummy);
     XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "black", &black, &dummy);
-    XParseColor(dpy, DefaultColormap(dpy, screen), "#FF7F00", col);
+  col.red = 65535;  // value is 0-65535
+  col.green = 32767;
+  col.blue = 0;
+  XAllocColor(dpy, DefaultColormap(dpy,0), &col);
     pmap = XCreateBitmapFromData(dpy, w, curs, 8, 8);
     invisible = XCreatePixmapCursor(dpy, pmap, pmap, &black, &black, 0, 0);
     XDefineCursor(dpy, w, invisible);
